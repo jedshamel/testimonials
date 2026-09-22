@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Leave a Testimonial · Jed Shamel</title>
+<meta name="description" content="Share a short testimonial about your coaching experience with Jed Shamel." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 58' fill='none' stroke='%232b2b2b' stroke-width='1.6'%3E%3Cline x1='30' y1='29' x2='30' y2='0'/%3E%3Cline x1='30' y1='29' x2='37.6' y2='0.9'/%3E%3Cline x1='30' y1='29' x2='45.2' y2='4'/%3E%3Cline x1='30' y1='29' x2='51.2' y2='8.5'/%3E%3Cline x1='30' y1='29' x2='55.9' y2='14.3'/%3E%3Cline x1='30' y1='29' x2='59' y2='21.7'/%3E%3Cline x1='30' y1='29' x2='60' y2='29'/%3E%3Cline x1='30' y1='29' x2='59' y2='36.3'/%3E%3Cline x1='30' y1='29' x2='55.9' y2='43.6'/%3E%3Cline x1='30' y1='29' x2='51.2' y2='49.4'/%3E%3Cline x1='30' y1='29' x2='45.2' y2='53.9'/%3E%3Cline x1='30' y1='29' x2='37.7' y2='57'/%3E%3Cline x1='30' y1='29' x2='30' y2='58'/%3E%3Cline x1='30' y1='29' x2='22.4' y2='57'/%3E%3Cline x1='30' y1='29' x2='14.9' y2='54'/%3E%3Cline x1='30' y1='29' x2='8.8' y2='49.4'/%3E%3Cline x1='30' y1='29' x2='4.2' y2='43.6'/%3E%3Cline x1='30' y1='29' x2='1.1' y2='36.3'/%3E%3Cline x1='30' y1='29' x2='0' y2='29'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     REBRAND ZONE
+     Palette and type taken from the Jed Shamel Brand Guide (2026).
+     Change these values to adjust the look. Nothing else needs editing.
+     ============================================================ */
+  :root {
+    /* Brand palette (Jed Shamel Brand Guide, Visual Identity) */
+    --beige:      #fffced;   /* page background */
+    --grey:       #e9e7de;   /* borders, dividers */
+    --charcoal:   #2b2b2b;   /* main text / ink */
+    --terracotta: #bf5c23;   /* accent (lines, highlights) */
+    --green:      #7a805e;
+    --sand:       #bba071;
+    --blue:       #24525c;   /* deep teal, primary actions */
+
+    /* Roles */
+    --bg:         var(--beige);
+    --card:       #ffffff;
+    --text:       var(--charcoal);
+    --text-soft:  #6a6459;   /* warm muted text */
+    --border:     var(--grey);
+    --primary:    var(--blue);
+    --primary-2:  #1c424a;   /* teal hover */
+    --accent:     var(--terracotta);
+    --danger:     #a8341f;
+    --radius:     14px;
+
+    /* Type (free alternates named in the brand guide) */
+    --font-head:  Georgia, "Times New Roman", serif;              /* alt for Exposure */
+    --font-body:  "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* alt for Monument Grotesk */
+    --font-mono:  "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 17px;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 24px 16px 48px; }
+
+  /* Eyebrow / mono labels (brand's Roboto Mono usage) */
+  .eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: 11px;
+    color: var(--text-soft);
+    margin: 0 0 10px;
+  }
+
+  /* Header / brand lockup */
+  .brand { display: flex; align-items: center; gap: 13px; margin: 6px 0 26px; }
+  .brand .mark { color: var(--charcoal); flex: none; }
+  .brand .mark svg { display: block; width: 40px; height: 39px; }
+  .brand .name { font-family: var(--font-body); font-weight: 700; font-size: 18px; line-height: 1.15; }
+  .brand .name small { display: block; font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: .14em; color: var(--text-soft); font-size: 11px; margin-top: 3px; }
+
+  h1 { font-family: var(--font-head); font-weight: 700; font-size: 30px; line-height: 1.18; letter-spacing: -0.01em; margin: 0 0 12px; }
+  .intro { color: var(--text-soft); margin: 0 0 24px; font-size: 16.5px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .prompt { border-left: 3px solid var(--accent); }
+  .prompt .q { font-family: var(--font-head); font-size: 21px; line-height: 1.3; font-weight: 700; margin: 0 0 8px; }
+  .prompt .hint { color: var(--text-soft); font-size: 15px; margin: 0; }
+
+  /* Method chooser */
+  .chooser-label { font-weight: 600; margin: 2px 0 12px; }
+  .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .method-btn {
+    appearance: none; border: 1.5px solid var(--border); background: var(--card);
+    border-radius: 12px; padding: 15px 6px; cursor: pointer; text-align: center;
+    font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text);
+    transition: border-color .15s, background .15s, transform .05s;
+  }
+  .method-btn .ic { display: block; margin: 0 auto 8px; width: 26px; height: 26px; color: var(--primary); }
+  .method-btn:active { transform: scale(.98); }
+  .method-btn[aria-pressed="true"] {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 7%, #fff);
+  }
+
+  .panel { display: none; margin-top: 18px; }
+  .panel.active { display: block; }
+
+  /* Media */
+  video, audio { width: 100%; border-radius: 10px; background: #000; display: block; }
+  audio { background: transparent; }
+  .media-stage { position: relative; }
+  .rec-dot {
+    position: absolute; top: 10px; left: 10px; display: none;
+    align-items: center; gap: 7px; background: rgba(0,0,0,.58); color: #fff;
+    padding: 4px 11px; border-radius: 999px; font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  }
+  .rec-dot.on { display: inline-flex; }
+  .rec-dot .blink { width: 9px; height: 9px; border-radius: 50%; background: #ff5b47; animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+
+  textarea {
+    width: 100%; min-height: 140px; resize: vertical; font-family: var(--font-body); font-size: 17px;
+    padding: 13px; border: 1.5px solid var(--border); border-radius: 10px; color: var(--text); background: #fff;
+  }
+  textarea:focus, input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+
+  label.field { display: block; font-weight: 600; font-size: 15px; margin: 16px 0 6px; }
+  label.field .opt { color: var(--text-soft); font-weight: 400; }
+  input[type="text"] {
+    width: 100%; font-family: var(--font-body); font-size: 17px; padding: 12px;
+    border: 1.5px solid var(--border); border-radius: 10px; background: #fff; color: var(--text);
+  }
+
+  .radios { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
+  .radios label { display: flex; align-items: center; gap: 11px; font-size: 16px; font-weight: 500; cursor: pointer; }
+  .radios input { width: 20px; height: 20px; accent-color: var(--primary); }
+
+  .second-prompt {
+    margin: 16px 0 2px; padding: 12px 14px; font-size: 14.5px; color: var(--text-soft);
+    background: color-mix(in srgb, var(--sand) 14%, #fff);
+    border: 1px solid color-mix(in srgb, var(--sand) 34%, #fff); border-radius: 10px;
+  }
+  .permission {
+    display: flex; gap: 9px; font-size: 14px; color: var(--text-soft); margin: 0 0 4px;
+    padding-left: 2px; line-height: 1.45;
+  }
+  .permission::before { content: ""; }
+
+  .consent { display: flex; align-items: flex-start; gap: 12px; margin-top: 8px; }
+  .consent input { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--primary); flex: none; }
+  .consent label { font-size: 15px; color: var(--text); }
+
+  /* Buttons */
+  .btn {
+    appearance: none; border: none; border-radius: 10px; font-family: var(--font-body);
+    font-size: 16px; font-weight: 700; padding: 13px 18px; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: filter .15s, opacity .15s, background .15s;
+  }
+  .btn svg { width: 17px; height: 17px; }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: var(--primary-2); }
+  .btn-ghost { background: transparent; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-danger { background: var(--danger); color: #fff; }
+  .btn-block { width: 100%; margin-top: 20px; padding: 16px; font-size: 17px; }
+  .btn:disabled { opacity: .42; cursor: not-allowed; filter: none; }
+
+  .note { font-size: 13px; color: var(--text-soft); margin-top: 8px; font-family: var(--font-mono); }
+  .msg { border-radius: 10px; padding: 12px 14px; margin-top: 14px; font-size: 15px; display: none; }
+  .msg.show { display: block; }
+  .msg.err  { background: #f8e7e2; color: var(--danger); border: 1px solid #e9c4b9; }
+  .msg.info { background: color-mix(in srgb, var(--primary) 8%, #fff); color: var(--primary-2); border: 1px solid color-mix(in srgb, var(--primary) 22%, #fff); }
+  .msg.warn { background: #fbf1e3; color: #8a5313; border: 1px solid #ecd6b4; }
+  .msg a { color: inherit; font-weight: 600; }
+
+  .fallback { margin-top: 14px; padding: 15px; border: 1px dashed var(--border); border-radius: 10px; background: #fbfaf3; }
+  .fallback h4 { margin: 0 0 8px; font-size: 15px; }
+  .fallback .file-in { display: block; margin-top: 8px; font-size: 15px; }
+
+  /* Thank-you */
+  #thanks { display: none; text-align: center; padding: 40px 8px; }
+  #thanks .mark { color: var(--charcoal); display: inline-block; }
+  #thanks .mark svg { width: 62px; height: 60px; }
+  #thanks h2 { font-family: var(--font-head); font-weight: 700; margin: 20px 0 8px; font-size: 26px; }
+  #thanks p { color: var(--text-soft); }
+
+  .progress { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; margin-top: 16px; display: none; }
+  .progress.show { display: block; }
+  .progress > i { display: block; height: 100%; width: 30%; background: var(--primary); border-radius: 999px; animation: slide 1.2s infinite; }
+  @keyframes slide { 0%{margin-left:-30%} 100%{margin-left:100%} }
+
+  .footer-note { text-align: center; color: var(--text-soft); font-size: 11px; margin-top: 28px; font-family: var(--font-mono); letter-spacing: .05em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- FORM VIEW -->
+  <div id="form">
+    <div class="brand">
+      <span class="mark" id="brandMark" aria-hidden="true"></span>
+      <span class="name" id="brandName">Jed Shamel<small>Executive Coaching</small></span>
+    </div>
+
+    <p class="eyebrow">A note from Jed</p>
+    <h1 id="headline"></h1>
+    <p class="intro" id="introText"></p>
+
+    <!-- Prompt (same for everyone) -->
+    <div class="card prompt">
+      <p class="eyebrow">The question</p>
+      <p class="q" id="promptText"></p>
+      <p class="hint" id="promptHint"></p>
+    </div>
+
+    <!-- Method chooser -->
+    <div class="card">
+      <div class="chooser-label">How would you like to answer?</div>
+      <div class="methods" role="group" aria-label="Choose response type">
+        <button class="method-btn" data-method="video" aria-pressed="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3"/></svg>
+          Video
+        </button>
+        <button class="method-btn" data-method="audio" aria-pressed="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+          Audio
+        </button>
+        <button class="method-btn" data-method="written" aria-pressed="false">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg>
+          Written
+        </button>
+      </div>
+
+      <!-- VIDEO PANEL -->
+      <div class="panel" id="panel-video">
+        <div class="media-stage">
+          <span class="rec-dot" id="vidDot"><span class="blink"></span><span id="vidTime">0:00</span></span>
+          <video id="vidEl" playsinline muted></video>
+        </div>
+        <div class="controls">
+          <button type="button" class="btn btn-primary" id="vidStart">Start recording</button>
+          <button type="button" class="btn btn-danger"  id="vidStop"  style="display:none">Stop</button>
+          <button type="button" class="btn btn-ghost"   id="vidRedo"  style="display:none">Record again</button>
+        </div>
+        <div class="msg warn" id="vidFallback"></div>
+      </div>
+
+      <!-- AUDIO PANEL -->
+      <div class="panel" id="panel-audio">
+        <div class="media-stage">
+          <span class="rec-dot" id="audDot"><span class="blink"></span><span id="audTime">0:00</span></span>
+          <audio id="audEl" controls></audio>
+        </div>
+        <div class="controls">
+          <button type="button" class="btn btn-primary" id="audStart">Start recording</button>
+          <button type="button" class="btn btn-danger"  id="audStop" style="display:none">Stop</button>
+          <button type="button" class="btn btn-ghost"   id="audRedo" style="display:none">Record again</button>
+        </div>
+        <div class="msg warn" id="audFallback"></div>
+      </div>
+
+      <!-- WRITTEN PANEL -->
+      <div class="panel" id="panel-written">
+        <textarea id="writtenText" placeholder="Type your testimonial here" maxlength="1500"></textarea>
+        <div class="note"><span id="charCount">0</span> / 1500 characters</div>
+      </div>
+
+      <!-- Optional second prompt, shown once a method is chosen -->
+      <p class="second-prompt" id="secondPrompt" style="display:none"></p>
+    </div>
+
+    <!-- Details -->
+    <div class="card" id="detailsCard" style="display:none">
+      <label class="field" for="cName">Your name <span class="opt">(optional)</span></label>
+      <input type="text" id="cName" autocomplete="name" placeholder="e.g. Alex Morgan" />
+
+      <label class="field" for="cRole">Role and company <span class="opt">(optional)</span></label>
+      <input type="text" id="cRole" autocomplete="organization" placeholder="e.g. CEO, Northwind Ltd" />
+
+      <label class="field">How would you like to be credited?</label>
+      <div class="radios">
+        <label><input type="radio" name="credit" value="Full name" checked /> Full name</label>
+        <label><input type="radio" name="credit" value="First name only" /> First name only</label>
+        <label><input type="radio" name="credit" value="Anonymous" /> Anonymous</label>
+      </div>
+
+      <p class="permission" id="permissionLine"></p>
+
+      <div class="consent" style="margin-top:14px">
+        <input type="checkbox" id="consent" />
+        <label for="consent" id="consentText"></label>
+      </div>
+
+      <div class="progress" id="progress"><i></i></div>
+      <div class="msg" id="statusMsg"></div>
+
+      <button type="button" class="btn btn-primary btn-block" id="submitBtn" disabled>Send my testimonial</button>
+      <p class="note" id="privacyNote"></p>
+    </div>
+
+    <p class="footer-note" id="footerNote"></p>
+  </div>
+
+  <!-- THANK YOU VIEW -->
+  <div id="thanks">
+    <span class="mark" id="thanksMark" aria-hidden="true"></span>
+    <h2 id="thanksTitle">Thank you</h2>
+    <p id="thanksBody"></p>
+  </div>
+
+</div>
+
+<script>
+/* ============================================================
+   CONFIG. The only things you normally need to change.
+   ============================================================ */
+const CONFIG = {
+  // 1) Paste the Apps Script Web App URL here after deploying (see README).
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyPxNnhbCmzVbOcrhsD1FBOzJxs47ALBYBVBr6iobQu3ZxxLyl0DCiwkZYMYN47qqMlbw/exec",
+
+  // 2) Branding
+  brandName:  "Jed Shamel",
+  brandTag:   "Executive Coaching",
+  logoUrl:    "",   // optional. Paste an image URL to replace the built-in starburst mark.
+
+  // 3) Copy. Replace the text below with your own words.
+  headline:   "Thank you. Would you share a few words?",
+  introText:  "It has been a privilege to walk alongside you in this work. I would love to capture where you have got to, in your own words. It takes about a minute, and you can speak or type, whichever feels easiest.",
+  promptText: "Think back to when we first started. What is different now?",
+  // Sharper alternative for long-standing clients (swap in if you prefer):
+  // "What were you carrying when we started, and what feels different now?"
+  promptHint: "Something you could not do, see or say then that you can now. Thirty to sixty seconds is plenty. Short and honest is perfect.",
+  secondPrompt:"If it has shown up somewhere tangible, a promotion, a decision, time back, a conversation you finally had, feel free to mention it.",
+  permissionLine:"I will always check with you before sharing anything publicly, and you can choose your first name only or stay anonymous.",
+  consentText:"I am happy for this testimonial to be used in marketing (website, social media and other materials).",
+  privacyNote:"We only collect what you enter here. Nothing is shared beyond Jed Shamel's own records.",
+  footerNote: "© Dr J Ltd",
+  thanksBody: "Your testimonial has been received. I really appreciate you taking the time.",
+
+  // 4) Practical guardrails
+  maxSeconds: 90,   // recording auto-stops at this length (protects upload reliability)
+  softWarnMB: 25    // warn the client if a recording or upload is larger than this
+};
+
+/* Brand starburst mark (extracted from the Jed Shamel Brand Guide). */
+const MARK_SVG = '<svg viewBox="0 0 60 58" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="butt">'
+  + '<line x1="30" y1="29" x2="30" y2="0"/><line x1="30" y1="29" x2="37.6" y2="0.9"/><line x1="30" y1="29" x2="45.2" y2="4"/>'
+  + '<line x1="30" y1="29" x2="51.2" y2="8.5"/><line x1="30" y1="29" x2="55.9" y2="14.3"/><line x1="30" y1="29" x2="59" y2="21.7"/>'
+  + '<line x1="30" y1="29" x2="60" y2="29"/><line x1="30" y1="29" x2="59" y2="36.3"/><line x1="30" y1="29" x2="55.9" y2="43.6"/>'
+  + '<line x1="30" y1="29" x2="51.2" y2="49.4"/><line x1="30" y1="29" x2="45.2" y2="53.9"/><line x1="30" y1="29" x2="37.7" y2="57"/>'
+  + '<line x1="30" y1="29" x2="30" y2="58"/><line x1="30" y1="29" x2="22.4" y2="57"/><line x1="30" y1="29" x2="14.9" y2="54"/>'
+  + '<line x1="30" y1="29" x2="8.8" y2="49.4"/><line x1="30" y1="29" x2="4.2" y2="43.6"/><line x1="30" y1="29" x2="1.1" y2="36.3"/>'
+  + '<line x1="30" y1="29" x2="0" y2="29"/></svg>';
+
+/* ============================================================
+   Boot. Inject copy and branding.
+   ============================================================ */
+(function initCopy(){
+  const g = id => document.getElementById(id);
+  if (CONFIG.logoUrl) {
+    g('brandMark').innerHTML = '<img src="' + CONFIG.logoUrl + '" alt="" style="height:40px;width:auto;display:block" />';
+  } else {
+    g('brandMark').innerHTML = MARK_SVG;
+  }
+  g('thanksMark').innerHTML = MARK_SVG;
+  g('brandName').innerHTML = CONFIG.brandName + '<small>' + CONFIG.brandTag + '</small>';
+  g('headline').textContent = CONFIG.headline;
+  g('introText').textContent = CONFIG.introText;
+  g('promptText').textContent = CONFIG.promptText;
+  g('promptHint').textContent = CONFIG.promptHint;
+  g('secondPrompt').textContent = CONFIG.secondPrompt;
+  g('permissionLine').textContent = CONFIG.permissionLine;
+  g('consentText').textContent = CONFIG.consentText;
+  g('privacyNote').textContent = CONFIG.privacyNote;
+  g('footerNote').textContent = CONFIG.footerNote;
+  g('thanksBody').textContent = CONFIG.thanksBody;
+})();
+
+/* ============================================================
+   State
+   ============================================================ */
+const state = { method: null, blob: null, mime: '', ext: '', isRecording: false };
+let mediaRecorder = null, mediaStream = null, chunks = [], timerInt = null, seconds = 0;
+const $ = id => document.getElementById(id);
+
+/* MediaRecorder capability and format detection (runtime, not hard-coded) */
+function recordingSupported(){
+  return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+}
+function secureContextOK(){
+  // getUserMedia only works on https or localhost.
+  return window.isSecureContext || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+}
+function pickMime(kind){
+  const vids = ['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm','video/mp4;codecs=h264,aac','video/mp4'];
+  const auds = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/aac','audio/mpeg','audio/ogg'];
+  const list = kind === 'video' ? vids : auds;
+  for (const t of list){ try { if (MediaRecorder.isTypeSupported(t)) return t; } catch(e){} }
+  return '';
+}
+function extFor(mime){
+  const m = (mime||'').toLowerCase();
+  if (m.includes('webm')) return 'webm';
+  if (m.includes('mp4'))  return state.method === 'audio' ? 'm4a' : 'mp4';
+  if (m.includes('aac'))  return 'm4a';
+  if (m.includes('mpeg')) return 'mp3';
+  if (m.includes('ogg'))  return 'ogg';
+  return state.method === 'audio' ? 'm4a' : 'mp4';
+}
+
+/* ============================================================
+   Method selection
+   ============================================================ */
+document.querySelectorAll('.method-btn').forEach(btn => {
+  btn.addEventListener('click', () => selectMethod(btn.dataset.method));
+});
+function selectMethod(m){
+  if (state.isRecording) stopRecording();
+  resetCapture();
+  state.method = m;
+  document.querySelectorAll('.method-btn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.method === m)));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  $('panel-' + m).classList.add('active');
+  $('secondPrompt').style.display = 'block';
+  $('detailsCard').style.display = 'block';
+  if (m === 'video' || m === 'audio') setupRecorder(m);
+  updateSubmitState();
+  $('detailsCard').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function resetCapture(){ state.blob = null; state.mime=''; state.ext=''; clearMsg('statusMsg'); }
+
+/* ============================================================
+   Recording (video and audio share this)
+   ============================================================ */
+function setupRecorder(kind){
+  const fbId = kind === 'video' ? 'vidFallback' : 'audFallback';
+  if (!secureContextOK()){
+    showRecorderFallback(kind, "Recording needs a secure (https) page. Once this page is published on a normal https link, recording will work here.");
+    return;
+  }
+  if (!recordingSupported()){
+    showRecorderFallback(kind, "In-browser recording is not supported on this browser.");
+    return;
+  }
+  clearMsg(fbId);
+}
+
+async function startRecording(kind){
+  const startBtn = $(kind==='video'?'vidStart':'audStart');
+  const stopBtn  = $(kind==='video'?'vidStop':'audStop');
+  const redoBtn  = $(kind==='video'?'vidRedo':'audRedo');
+  const dot      = $(kind==='video'?'vidDot':'audDot');
+  const media    = $(kind==='video'?'vidEl':'audEl');
+  const fbId     = kind==='video'?'vidFallback':'audFallback';
+
+  try {
+    const constraints = kind === 'video'
+      ? { video: { facingMode: 'user' }, audio: true }
+      : { audio: true };
+    mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
+  } catch (err){
+    let reason = "We could not access your " + (kind==='video'?'camera and microphone':'microphone') + ".";
+    if (err && (err.name === 'NotAllowedError' || err.name === 'SecurityError'))
+      reason = "Permission was blocked. You can allow access in your browser settings, or use one of the options below.";
+    else if (err && err.name === 'NotFoundError')
+      reason = "No " + (kind==='video'?'camera':'microphone') + " was found on this device.";
+    showRecorderFallback(kind, reason);
+    return;
+  }
+
+  if (kind === 'video'){
+    media.srcObject = mediaStream; media.muted = true; media.playsInline = true;
+    try { await media.play(); } catch(e){}
+  }
+
+  const mime = pickMime(kind);
+  state.mime = mime; state.ext = extFor(mime);
+  chunks = [];
+  try {
+    mediaRecorder = mime ? new MediaRecorder(mediaStream, { mimeType: mime }) : new MediaRecorder(mediaStream);
+  } catch(e){
+    try { mediaRecorder = new MediaRecorder(mediaStream); }
+    catch(e2){ showRecorderFallback(kind, "Recording failed to start on this browser."); stopStream(); return; }
+  }
+  if (!mime && mediaRecorder.mimeType){ state.mime = mediaRecorder.mimeType; state.ext = extFor(state.mime); }
+
+  mediaRecorder.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  mediaRecorder.onstop = () => finishRecording(kind);
+  mediaRecorder.start();
+
+  state.isRecording = true;
+  seconds = 0; updateTimer(kind);
+  timerInt = setInterval(() => { seconds++; updateTimer(kind); if (seconds >= CONFIG.maxSeconds) stopRecording(); }, 1000);
+
+  dot.classList.add('on');
+  startBtn.style.display='none'; stopBtn.style.display='inline-flex'; redoBtn.style.display='none';
+  clearMsg(fbId);
+}
+
+function stopRecording(){
+  if (mediaRecorder && mediaRecorder.state !== 'inactive'){ try { mediaRecorder.stop(); } catch(e){} }
+  state.isRecording = false;
+  clearInterval(timerInt);
+}
+
+function finishRecording(kind){
+  const startBtn = $(kind==='video'?'vidStart':'audStart');
+  const stopBtn  = $(kind==='video'?'vidStop':'audStop');
+  const redoBtn  = $(kind==='video'?'vidRedo':'audRedo');
+  const dot      = $(kind==='video'?'vidDot':'audDot');
+  const media    = $(kind==='video'?'vidEl':'audEl');
+
+  dot.classList.remove('on');
+  stopStream();
+
+  const blob = new Blob(chunks, { type: state.mime || (kind==='video'?'video/mp4':'audio/mp4') });
+  state.blob = blob;
+
+  const url = URL.createObjectURL(blob);
+  if (kind === 'video'){ media.srcObject = null; media.src = url; media.muted = false; media.controls = true; }
+  else { media.src = url; }
+
+  startBtn.style.display='none'; stopBtn.style.display='none'; redoBtn.style.display='inline-flex';
+
+  const mb = blob.size / (1024*1024);
+  if (mb > CONFIG.softWarnMB){
+    showMsg('statusMsg','warn', 'That recording is about ' + mb.toFixed(0) + ' MB, which may upload slowly. A shorter clip (30 to 60 seconds) is more reliable.');
+  }
+  updateSubmitState();
+}
+
+function stopStream(){ if (mediaStream){ mediaStream.getTracks().forEach(t => t.stop()); mediaStream = null; } }
+
+function updateTimer(kind){
+  const el = $(kind==='video'?'vidTime':'audTime');
+  const m = Math.floor(seconds/60), s = seconds%60;
+  el.textContent = m + ':' + String(s).padStart(2,'0');
+}
+
+$('vidStart').addEventListener('click', () => startRecording('video'));
+$('vidStop') .addEventListener('click', stopRecording);
+$('vidRedo') .addEventListener('click', () => { resetCapture(); $('vidEl').removeAttribute('src'); $('vidEl').load(); $('vidStart').style.display='inline-flex'; $('vidRedo').style.display='none'; setupRecorder('video'); updateSubmitState(); });
+$('audStart').addEventListener('click', () => startRecording('audio'));
+$('audStop') .addEventListener('click', stopRecording);
+$('audRedo') .addEventListener('click', () => { resetCapture(); $('audEl').removeAttribute('src'); $('audEl').load(); $('audStart').style.display='inline-flex'; $('audRedo').style.display='none'; setupRecorder('audio'); updateSubmitState(); });
+
+/* ============================================================
+   Graceful fallback (native camera or file upload)
+   ============================================================ */
+function showRecorderFallback(kind, message){
+  const box = $(kind==='video'?'vidFallback':'audFallback');
+  const accept = kind === 'video' ? 'video/*' : 'audio/*';
+  const capture = kind === 'video' ? 'user' : '';
+  box.innerHTML =
+    '<strong>' + message + '</strong>' +
+    '<div style="margin-top:8px">No problem, you can still take part:</div>' +
+    '<div class="fallback">' +
+      '<h4>Option A. Record on your phone and upload</h4>' +
+      '<input class="file-in" type="file" accept="' + accept + '" ' + (capture?('capture="'+capture+'"'):'') + ' id="' + kind + 'File" />' +
+      '<h4 style="margin-top:14px">Option B. Switch to written</h4>' +
+      '<button type="button" class="btn btn-ghost" onclick="selectMethod(\'written\')">Type it instead</button>' +
+    '</div>';
+  box.classList.add('show');
+  ['Start','Stop','Redo'].forEach(x => { const b = $((kind==='video'?'vid':'aud')+x); if (b) b.style.display='none'; });
+
+  $(kind+'File').addEventListener('change', e => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    state.blob = f; state.mime = f.type || (kind==='video'?'video/mp4':'audio/mp4');
+    state.ext  = (f.name.split('.').pop() || extFor(state.mime)).toLowerCase();
+    const mb = f.size/(1024*1024);
+    if (mb > CONFIG.softWarnMB) showMsg('statusMsg','warn','That file is about '+mb.toFixed(0)+' MB and may upload slowly.');
+    else showMsg('statusMsg','info','File ready: ' + f.name);
+    updateSubmitState();
+  });
+}
+
+/* ============================================================
+   Written char count
+   ============================================================ */
+$('writtenText').addEventListener('input', e => { $('charCount').textContent = e.target.value.length; updateSubmitState(); });
+
+/* ============================================================
+   Consent and submit gating
+   ============================================================ */
+$('consent').addEventListener('change', updateSubmitState);
+function hasContent(){
+  if (state.method === 'written') return $('writtenText').value.trim().length > 0;
+  if (state.method === 'video' || state.method === 'audio') return !!state.blob;
+  return false;
+}
+function updateSubmitState(){ $('submitBtn').disabled = !( $('consent').checked && hasContent() ); }
+
+/* ============================================================
+   Submit. POST to Apps Script.
+   ============================================================ */
+function blobToBase64(blob){
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => { const s = r.result; res(s.slice(s.indexOf(',')+1)); };
+    r.onerror = rej;
+    r.readAsDataURL(blob);
+  });
+}
+function meta(){
+  const credit = (document.querySelector('input[name=credit]:checked')||{}).value || 'Full name';
+  return {
+    name:   $('cName').value.trim(),
+    role:   $('cRole').value.trim(),
+    credit: credit,
+    format: state.method,
+    date:   new Date().toISOString()
+  };
+}
+
+$('submitBtn').addEventListener('click', submit);
+
+async function submit(){
+  if ($('submitBtn').disabled) return;
+  if (!CONFIG.APPS_SCRIPT_URL || CONFIG.APPS_SCRIPT_URL.indexOf('PASTE_') === 0){
+    showMsg('statusMsg','err','The upload endpoint has not been configured yet (CONFIG.APPS_SCRIPT_URL).');
+    return;
+  }
+  setBusy(true);
+  clearMsg('statusMsg');
+
+  try {
+    const fd = new FormData();
+    const m = meta();
+    Object.entries(m).forEach(([k,v]) => fd.append(k, v));
+
+    if (state.method === 'written'){
+      fd.append('text', $('writtenText').value.trim());
+      fd.append('ext', 'txt');
+      fd.append('mimeType', 'text/plain');
+    } else {
+      const b64 = await blobToBase64(state.blob);
+      fd.append('data', b64);
+      fd.append('ext', state.ext || extFor(state.mime));
+      fd.append('mimeType', state.mime || 'application/octet-stream');
+    }
+
+    // Apps Script redirects its reply to googleusercontent.com, which does not
+    // return CORS headers the browser can read. So we post as "no-cors": the
+    // request still reaches the script and saves the file, but the reply is
+    // opaque. A request that completes without a network error is treated as a
+    // success (a genuine network failure still rejects and shows the retry).
+    // multipart/form-data with no custom headers keeps this a simple request.
+    await fetch(CONFIG.APPS_SCRIPT_URL, { method: 'POST', body: fd, mode: 'no-cors' });
+    showThanks();
+
+  } catch (err){
+    setBusy(false);
+    offerRetryOrDownload();
+  }
+}
+
+function offerRetryOrDownload(){
+  let html = '<strong>Upload did not go through.</strong> Your ' +
+    (state.method==='written'?'text is still here':'recording has not been lost') + ', please try again.';
+  if (state.method !== 'written' && state.blob){
+    const url = URL.createObjectURL(state.blob);
+    const fname = 'testimonial.' + (state.ext || 'mp4');
+    html += '<div style="margin-top:8px">If it keeps failing, you can ' +
+      '<a href="' + url + '" download="' + fname + '">download your recording</a> and email it to us instead.</div>';
+  }
+  const box = $('statusMsg');
+  box.className = 'msg err show';
+  box.innerHTML = html;
+}
+
+function setBusy(b){
+  $('submitBtn').disabled = b || !( $('consent').checked && hasContent() );
+  $('submitBtn').textContent = b ? 'Sending' : 'Send my testimonial';
+  $('progress').classList.toggle('show', b);
+}
+
+function showThanks(){
+  $('form').style.display = 'none';
+  $('thanks').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+  stopStream();
+}
+
+/* helpers */
+function showMsg(id, kind, text){ const el=$(id); el.className='msg '+kind+' show'; el.textContent=text; }
+function clearMsg(id){ const el=$(id); if(el){ el.className='msg'; el.textContent=''; el.innerHTML=''; } }
+</script>
+</body>
+</html>
