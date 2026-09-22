@@ -341,8 +341,17 @@ const CONFIG = {
   thanksBody: "Your testimonial has been received. I really appreciate you taking the time.",
 
   // 4) Practical guardrails
-  maxSeconds: 90,   // recording auto-stops at this length (protects upload reliability)
-  softWarnMB: 25    // warn the client if a recording or upload is larger than this
+  maxSeconds: 60,   // recording auto-stops at this length (protects upload reliability)
+  softWarnMB: 18,   // warn the client if a recording or upload is larger than this
+  hardMaxMB:  35,   // block uploads larger than this (Apps Script cannot accept ~50MB+)
+
+  // 5) Video quality. Kept modest on purpose so uploads stay fast and reliable
+  //    on phone data. A talking-head testimonial does not need more than this.
+  //    Raise these only if you know your clients will be on strong wifi.
+  videoWidth:  854,       // capture width  (480p-class)
+  videoHeight: 480,       // capture height
+  videoBitsPerSecond: 1000000,  // ~1 Mbps video  (about 7 to 8 MB per minute)
+  audioBitsPerSecond: 96000     // clear voice
 };
 
 /* Brand starburst mark (extracted from the Jed Shamel Brand Guide). */
@@ -458,7 +467,11 @@ async function startRecording(kind){
 
   try {
     const constraints = kind === 'video'
-      ? { video: { facingMode: 'user' }, audio: true }
+      ? { video: { facingMode: 'user',
+                   width:  { ideal: CONFIG.videoWidth  },
+                   height: { ideal: CONFIG.videoHeight },
+                   frameRate: { ideal: 24, max: 30 } },
+          audio: true }
       : { audio: true };
     mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
   } catch (err){
@@ -479,8 +492,13 @@ async function startRecording(kind){
   const mime = pickMime(kind);
   state.mime = mime; state.ext = extFor(mime);
   chunks = [];
+  // Bitrate caps keep files small so uploads are quick and reliable on phone data.
+  const recOpts = {};
+  if (mime) recOpts.mimeType = mime;
+  if (kind === 'video' && CONFIG.videoBitsPerSecond) recOpts.videoBitsPerSecond = CONFIG.videoBitsPerSecond;
+  if (CONFIG.audioBitsPerSecond) recOpts.audioBitsPerSecond = CONFIG.audioBitsPerSecond;
   try {
-    mediaRecorder = mime ? new MediaRecorder(mediaStream, { mimeType: mime }) : new MediaRecorder(mediaStream);
+    mediaRecorder = new MediaRecorder(mediaStream, recOpts);
   } catch(e){
     try { mediaRecorder = new MediaRecorder(mediaStream); }
     catch(e2){ showRecorderFallback(kind, "Recording failed to start on this browser."); stopStream(); return; }
@@ -526,8 +544,10 @@ function finishRecording(kind){
   startBtn.style.display='none'; stopBtn.style.display='none'; redoBtn.style.display='inline-flex';
 
   const mb = blob.size / (1024*1024);
-  if (mb > CONFIG.softWarnMB){
-    showMsg('statusMsg','warn', 'That recording is about ' + mb.toFixed(0) + ' MB, which may upload slowly. A shorter clip (30 to 60 seconds) is more reliable.');
+  if (mb > CONFIG.hardMaxMB){
+    showMsg('statusMsg','err', 'That recording is about ' + mb.toFixed(0) + ' MB, which is too large to upload reliably. Please record a shorter clip, or switch to audio or written.');
+  } else if (mb > CONFIG.softWarnMB){
+    showMsg('statusMsg','warn', 'That recording is about ' + mb.toFixed(0) + ' MB, which may upload slowly on phone data. A shorter clip (30 to 60 seconds) is more reliable.');
   }
   updateSubmitState();
 }
@@ -572,7 +592,8 @@ function showRecorderFallback(kind, message){
     state.blob = f; state.mime = f.type || (kind==='video'?'video/mp4':'audio/mp4');
     state.ext  = (f.name.split('.').pop() || extFor(state.mime)).toLowerCase();
     const mb = f.size/(1024*1024);
-    if (mb > CONFIG.softWarnMB) showMsg('statusMsg','warn','That file is about '+mb.toFixed(0)+' MB and may upload slowly.');
+    if (mb > CONFIG.hardMaxMB) showMsg('statusMsg','err','That file is about '+mb.toFixed(0)+' MB, which is too large to upload reliably. Please record a shorter clip (under 60 seconds), or switch to audio or written.');
+    else if (mb > CONFIG.softWarnMB) showMsg('statusMsg','warn','That file is about '+mb.toFixed(0)+' MB and may upload slowly on phone data.');
     else showMsg('statusMsg','info','File ready: ' + f.name);
     updateSubmitState();
   });
@@ -592,7 +613,8 @@ function hasContent(){
   if (state.method === 'video' || state.method === 'audio') return !!state.blob;
   return false;
 }
-function updateSubmitState(){ $('submitBtn').disabled = !( $('consent').checked && hasContent() ); }
+function isOversize(){ return !!(state.blob && state.blob.size > CONFIG.hardMaxMB * 1024 * 1024); }
+function updateSubmitState(){ $('submitBtn').disabled = !( $('consent').checked && hasContent() && !isOversize() ); }
 
 /* ============================================================
    Submit. POST to Apps Script.
@@ -643,13 +665,15 @@ async function submit(){
       fd.append('mimeType', state.mime || 'application/octet-stream');
     }
 
-    // Apps Script redirects its reply to googleusercontent.com, which does not
-    // return CORS headers the browser can read. So we post as "no-cors": the
-    // request still reaches the script and saves the file, but the reply is
-    // opaque. A request that completes without a network error is treated as a
-    // success (a genuine network failure still rejects and shows the retry).
-    // multipart/form-data with no custom headers keeps this a simple request.
-    await fetch(CONFIG.APPS_SCRIPT_URL, { method: 'POST', body: fd, mode: 'no-cors' });
+    // multipart/form-data with no custom headers is a "simple" request (no CORS
+    // preflight). The Apps Script reply IS readable, so we confirm the save for
+    // real: the client only sees the thank-you when status is "ok". Any error
+    // (including an oversized upload the server refuses) falls through to the
+    // retry-or-download path, so a testimonial is never silently lost.
+    const resp = await fetch(CONFIG.APPS_SCRIPT_URL, { method: 'POST', body: fd });
+    let confirmed = false;
+    try { const j = await resp.json(); confirmed = !!(j && j.status === 'ok'); } catch(e){ confirmed = false; }
+    if (!resp.ok || !confirmed) throw new Error('The server did not confirm the save.');
     showThanks();
 
   } catch (err){
@@ -673,7 +697,7 @@ function offerRetryOrDownload(){
 }
 
 function setBusy(b){
-  $('submitBtn').disabled = b || !( $('consent').checked && hasContent() );
+  $('submitBtn').disabled = b || !( $('consent').checked && hasContent() && !isOversize() );
   $('submitBtn').textContent = b ? 'Sending' : 'Send my testimonial';
   $('progress').classList.toggle('show', b);
 }
